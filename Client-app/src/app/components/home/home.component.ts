@@ -32,8 +32,8 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/users']);
   }
 
-  flowersManagement() {
-    this.router.navigate(['/flowers']);
+  tasksManagement() {
+    this.router.navigate(['/tasks']);
   }
 
   logout() {
