@@ -7,12 +7,14 @@ import { HomeComponent } from './components/home/home.component';
 import { SharedModule } from './modules/shared.module';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UsersComponent } from './components/users/users.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    TasksComponent
+    TasksComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
