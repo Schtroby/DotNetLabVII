@@ -1,3 +1,39 @@
-<ul>
+<!--<ul>
     <li *ngFor="let t of tasks.entries">{{t.title}}</li>
-</ul>
+</ul>-->
+
+<table mat-table [dataSource]="tasks.entries" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+  <!-- Position Column -->
+  <ng-container matColumnDef="Title">
+    <th mat-header-cell *matHeaderCellDef> Title </th>
+    <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="Description">
+    <th mat-header-cell *matHeaderCellDef> Description </th>
+    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="TaskImportance">
+    <th mat-header-cell *matHeaderCellDef>TaskImportance </th>
+    <td mat-cell *matCellDef="let element"> {{element.taskImportance}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="TaskState">
+    <th mat-header-cell *matHeaderCellDef>TaskState </th>
+    <td mat-cell *matCellDef="let element"> {{element.taskState}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="NumberOfComments">
+    <th mat-header-cell *matHeaderCellDef>NumberOfComments </th>
+    <td mat-cell *matCellDef="let element"> {{element.numberOfComments}} </td>
+  </ng-container>
+    
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

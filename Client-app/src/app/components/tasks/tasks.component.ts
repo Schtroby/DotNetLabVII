@@ -11,7 +11,8 @@ import { TaskService } from 'src/app/services/tasks.service';
 export class TasksComponent implements OnInit {
 
     public tasks: any = null;
-    public displayedColumns: string[] = ['Title', 'Description', 'DateAdded', 'Deadline', 'TaskImportance', 'TaskState', 'DateClosed', 'NumberOfComments'];
+  //public displayedColumns: string[] = ['Title', 'Description', 'DateAdded', 'Deadline', 'TaskImportance', 'TaskState', 'DateClosed', 'NumberOfComments'];
+  public displayedColumns: string[] = ['Title', 'Description', 'TaskImportance', 'TaskState', 'NumberOfComments'];
 
     constructor(private taskService: TaskService) {
         this.getAllTasks();
