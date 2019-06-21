@@ -9,13 +9,17 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
-              <button autotest-id="tasksManagement" mat-menu-item (click)="tasksManagement()">
-                  <mat-icon>people</mat-icon>
-                  <span>Tasks management</span>
-                </button>
+            <button autotest-id="tasksManagement" mat-menu-item (click)="tasksManagement()">
+              <mat-icon>people</mat-icon>
+              <span>Tasks management</span>
+            </button>
             <button autotest-id="userManagement" mat-menu-item (click)="userManagement()">
               <mat-icon>people</mat-icon>
               <span>User management</span>
+            </button>
+            <button autotest-id="commentsManagement" mat-menu-item (click)="commentsManagement()">
+              <mat-icon>people</mat-icon>
+              <span>Comments management</span>
             </button>
             <button autotest-id="logoutBtn" mat-menu-item (click)="logout()">
               <mat-icon>keyboard_tab</mat-icon>

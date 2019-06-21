@@ -8,13 +8,15 @@ import { SharedModule } from './modules/shared.module';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UsersComponent } from './components/users/users.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     TasksComponent,
-    UsersComponent
+    UsersComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,

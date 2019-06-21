@@ -36,6 +36,10 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/tasks']);
   }
 
+  commentsManagement() {
+    this.router.navigate(['/comments']);
+  }
+
   logout() {
   }
 }

@@ -1,6 +1,7 @@
 using LabIV.DTO;
 using LabIV.Models;
 using LabIV.Services;
+using LabIV.Validators;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using NUnit.Framework;
@@ -23,33 +24,34 @@ namespace Tests
 
         }
 
-        //[Test]
-        //public void ValidRegisterShouldCreateANewUser()
-        //{
-        //    var options = new DbContextOptionsBuilder<TasksDbContext>()
-        //      .UseInMemoryDatabase(databaseName: nameof(ValidRegisterShouldCreateANewUser))// "ValidRegisterShouldCreateANewUser")
-        //      .Options;
+        [Test]
+        public void ValidRegisterShouldCreateANewUser()
+        {
+            var options = new DbContextOptionsBuilder<TasksDbContext>()
+              .UseInMemoryDatabase(databaseName: nameof(ValidRegisterShouldCreateANewUser))// "ValidRegisterShouldCreateANewUser")
+              .Options;
 
-        //    using (var context = new TasksDbContext(options))
-        //    {
-        //        var usersService = new UsersService(context, null, null, null, config);
-        //        var added = new RegisterPostDTO()
+            using (var context = new TasksDbContext(options))
+            {
+                var validator = new RegisterValidator();
+                var usersService = new UsersService(context, validator, null, null, config);
+                var added = new RegisterPostDTO()
 
-        //        {
+                {
 
-        //            FirstName = "Julia",
-        //            LastName = "Bush",
-        //            Username = "julia",
-        //            Email = "julia@gmail.com",
-        //            Password = "1234567"
-        //        };
-        //        var result = usersService.Register(added);
+                    FirstName = "Julia",
+                    LastName = "Bush",
+                    Username = "julia",
+                    Email = "julia@gmail.com",
+                    Password = "1234567"
+                };
+                var result = usersService.Register(added);
 
-        //        Assert.IsNotNull(result);
-        //        // Assert.AreEqual(added.Username, result.Username);
+                Assert.IsNull(result);
+                // Assert.AreEqual(added.Username, result.Username);
 
-        //    }
-        //}
+            }
+        }
 
         //[Test]
         //public void AuthenticateShouldLogInAUser()

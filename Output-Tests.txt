@@ -1,0 +1,23 @@
+﻿[2019-06-21 19:00:22 Informational] Executing test method 'Tests.UsersServiceTests.ValidRegisterShouldCreateANewUser'
+[2019-06-21 19:00:22 Informational] ------ Run test started ------
+[2019-06-21 19:00:24 Informational] NUnit Adapter 3.11.0.0: Test execution started
+[2019-06-21 19:00:24 Informational] Running all tests in C:\Users\Dénes\source\repos\LabVII\WebAPITests\bin\Debug\netcoreapp2.2\WebAPITests.dll
+[2019-06-21 19:00:25 Informational]    NUnit3TestExecutor converted 19 of 19 NUnit test cases
+[2019-06-21 19:00:26 Informational] NUnit Adapter 3.11.0.0: Test execution complete
+[2019-06-21 19:00:26 Informational] ========== Run test finished: 1 run (0:00:04.4128277) ==========
+[2019-06-21 19:01:46 Informational] ------ Discover test started ------
+[2019-06-21 19:01:47 Informational] NUnit Adapter 3.11.0.0: Test discovery starting
+[2019-06-21 19:01:47 Informational] NUnit Adapter 3.11.0.0: Test discovery complete
+[2019-06-21 19:01:47 Informational] ========== Discover test finished: 19 found (0:00:01.3405111) ==========
+[2019-06-21 19:01:47 Informational] ------ Run test started ------
+[2019-06-21 19:01:48 Informational] NUnit Adapter 3.11.0.0: Test execution started
+[2019-06-21 19:01:48 Informational] Running all tests in C:\Users\Dénes\source\repos\LabVII\WebAPITests\bin\Debug\netcoreapp2.2\WebAPITests.dll
+[2019-06-21 19:01:48 Informational]    NUnit3TestExecutor converted 19 of 19 NUnit test cases
+[2019-06-21 19:01:50 Informational] NUnit Adapter 3.11.0.0: Test execution complete
+[2019-06-21 19:01:50 Informational] ========== Run test finished: 19 run (0:00:03.0014512) ==========
+[2019-06-21 19:03:44 Informational] ------ Run test started ------
+[2019-06-21 19:03:46 Informational] NUnit Adapter 3.11.0.0: Test execution started
+[2019-06-21 19:03:46 Informational] Running all tests in C:\Users\Dénes\source\repos\LabVII\WebAPITests\bin\Debug\netcoreapp2.2\WebAPITests.dll
+[2019-06-21 19:03:46 Informational]    NUnit3TestExecutor converted 19 of 19 NUnit test cases
+[2019-06-21 19:03:48 Informational] NUnit Adapter 3.11.0.0: Test execution complete
+[2019-06-21 19:03:49 Informational] ========== Run test finished: 19 run (0:00:04.6499397) ==========
