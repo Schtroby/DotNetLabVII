@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+
+
 namespace WebAPITests
 {
     class TasksServiceTests
@@ -22,7 +24,7 @@ namespace WebAPITests
             {
                 var taskService = new TasksService(context);
                 var added = taskService.Create(new LabIV.DTO.TaskPostDTO
-                
+
                 {
                     Title = "Booking Commision",
                     Description = "Verify booking commision",
@@ -38,22 +40,22 @@ namespace WebAPITests
                         {
                             Important = true,
                             Text = "A nice task...",
-                           
+
                         }
                     },
-                    
+
                 }, null);
 
                 DateTime from = DateTime.Parse("2019-06-13T00:00:00");
                 DateTime to = DateTime.Parse("2019-06-19T00:00:00");
 
-                var allTasks = taskService.GetAll(1,from, to);
+                var allTasks = taskService.GetAll(1, from, to);
                 Assert.AreEqual(1, allTasks.Entries.Count);
                 Assert.IsNotNull(allTasks);
             }
         }
 
-        
+
 
         [Test]
         public void CreateShouldAddAndReturnTheCreatedTask()
@@ -106,7 +108,7 @@ namespace WebAPITests
             using (var context = new TasksDbContext(options))
             {
                 var taskService = new TasksService(context);
-                var added = new TaskPostDTO()
+                var added = taskService.Create(new TaskPostDTO
 
                 {
                     Title = "Booking1010",
@@ -127,21 +129,24 @@ namespace WebAPITests
                         }
                     },
 
-                };
+                }, null);
 
-                var toAdd = taskService.Create(added, null);
-                var update = new TaskPostDTO()
+
+                context.Entry(added).State = EntityState.Detached;
+
+                var update = new Task()
                 {
-                    Title = "Updated"
+                    Title = "Updated",
+
                 };
 
-                var toUp = taskService.Create(update, null);
-                var updateResult = taskService.Upsert(toUp.Id, toUp);
+
+                var updateResult = taskService.Upsert(added.Id, update);
 
 
-                Assert.IsNotNull(updateResult);
-                Assert.AreEqual(toUp.Title, updateResult.Title);
-                
+                Assert.NotNull(updateResult);
+                Assert.AreNotEqual(added.Title, updateResult.Title);
+                Assert.AreEqual("Updated", updateResult.Title);
             }
         }
 
@@ -177,7 +182,7 @@ namespace WebAPITests
                     },
 
                 };
-                
+
                 var actual = tasksService.Create(expected, null);
                 var afterDelete = tasksService.Delete(actual.Id);
                 int numberOfCommentsInDb = context.Comments.CountAsync().Result;

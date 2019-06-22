@@ -24,7 +24,64 @@
     <td mat-cell *matCellDef="let element"> {{element.important}} </td>
   </ng-container>
 
-  
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<div>
+  <hr>
+  <button id="goBack" (click)="goBack()">
+    <mat-icon>home</mat-icon>
+    <span><b>Back</b></span>
+  </button>
+</div>
+
+<div>
+  <hr>
+  <span><h2> Filter</h2></span>
+  <hr>
+</div>
+
+<div>
+  <form class="filter-form">
+    <mat-form-field class="filter-full-width">
+      <input matInput placeholder="Filter String" value="Just Write Something..." #filter>
+    </mat-form-field>
+  </form>
+  <button id="filter" (click)="filteredComment(filter.value)">
+    <span><b>Filter NOW</b></span>
+  </button>
+</div>
+
+<div>
+  <hr>
+  <span> Filtered comments here...</span>
+  <hr>
+</div>
+
+<table *ngIf="filteredComments" mat-table [dataSource]="filteredComments.entries" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+  <!-- Text Column -->
+  <ng-container matColumnDef="Text">
+    <th mat-header-cell *matHeaderCellDef> Text </th>
+    <td mat-cell *matCellDef="let element"> {{element.text}} </td>
+  </ng-container>
+
+  <!-- TaskId Column -->
+  <ng-container matColumnDef="TaskId">
+    <th mat-header-cell *matHeaderCellDef> TaskId </th>
+    <td mat-cell *matCellDef="let element"> {{element.taskId}} </td>
+  </ng-container>
+
+  <!-- Important Column -->
+  <ng-container matColumnDef="Important">
+    <th mat-header-cell *matHeaderCellDef> Important </th>
+    <td mat-cell *matCellDef="let element"> {{element.important}} </td>
+  </ng-container>
+
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>

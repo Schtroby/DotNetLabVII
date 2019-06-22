@@ -11,10 +11,10 @@ import { CommentService } from 'src/app/services/comments.service';
 export class CommentsComponent implements OnInit {
 
   public comments: any = null;
-  
+  public filteredComments: any = null;
   public displayedColumns: string[] = ['Text', 'TaskId', 'Important'];
 
-  constructor(private commentsService: CommentService) {
+  constructor(private commentsService: CommentService, private route: Router) {
     this.getAllComments();
   }
 
@@ -28,4 +28,18 @@ export class CommentsComponent implements OnInit {
       console.log(c);
     });
   }
+
+  filteredComment(filter: string) {
+    this.commentsService.getAllFilteredComments(filter).subscribe(c => {
+      this.filteredComments = c;
+      console.log(c);
+    })
+
+  }
+
+
+  goBack() {
+    this.route.navigate(['']);
+  }
+
 }

@@ -64,13 +64,13 @@ namespace WebAPITests
             using (var context = new TasksDbContext(options))
             {
                 var commentsService = new CommentsService(context);
-                var toAdd = new CommentPostDTO ()
+                var toAdd = new CommentPostDTO()
 
                 {
-  
-                     Important = true,
-                     Text = "A nice task...",
- 
+
+                    Important = true,
+                    Text = "A nice task...",
+
                 };
 
                 var added = commentsService.Create(toAdd, null);
@@ -102,17 +102,22 @@ namespace WebAPITests
                 };
 
                 var added = commentsService.Create(toAdd, null);
-                var update = new CommentPostDTO()
+                context.Entry(added).State = EntityState.Detached;
+
+                var update = new Comment()
                 {
-                    Important = false
+                    Important = false,
+                    Text = "A nice task...",
                 };
 
-                var toUp = commentsService.Create(update, null);
-                var updateResult = commentsService.Upsert(added.Id, added);
-                Assert.IsNotNull(updateResult);
-                Assert.False(toUp.Important);
-                
+
+                var updateResult = commentsService.Upsert(added.Id, update);
+                Assert.NotNull(updateResult);
+                Assert.False(updateResult.Important);
+                Assert.AreEqual(added.Text, updateResult.Text);
+
             }
+
         }
 
         [Test]
@@ -134,7 +139,7 @@ namespace WebAPITests
 
                 };
 
-                
+
                 var actual = commentsService.Create(toAdd, null);
                 var afterDelete = commentsService.Delete(actual.Id);
                 int numberOfCommentsInDb = context.Comments.CountAsync().Result;
