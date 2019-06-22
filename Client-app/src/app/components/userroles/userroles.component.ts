@@ -14,7 +14,7 @@ export class UserRolesComponent implements OnInit {
 
   public displayedColumns: string[] = ['Name', 'Description'];
 
-  constructor(private userrolesService: UserRoleService) {
+  constructor(private userrolesService: UserRoleService, private route: Router) {
     this.getAllUserRoles();
   }
 
@@ -27,5 +27,8 @@ export class UserRolesComponent implements OnInit {
       this.userroles = ur;
       console.log(ur);
     });
+  }
+  goBack() {
+    this.route.navigate(['']);
   }
 }

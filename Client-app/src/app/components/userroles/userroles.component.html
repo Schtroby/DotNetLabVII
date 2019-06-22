@@ -23,4 +23,10 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-
+<div>
+  <hr>
+  <button id="goBack" (click)="goBack()">
+    <mat-icon>home</mat-icon>
+    <span><b>Back</b></span>
+  </button>
+</div>

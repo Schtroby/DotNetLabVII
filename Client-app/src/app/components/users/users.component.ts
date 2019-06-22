@@ -16,7 +16,7 @@ export class UsersComponent implements OnInit {
   public displayedColumns: string[] = ['Username', 'Email'];
   public displayedColumnsChanges: string[] = ['UserRoleName', 'StartTime', 'EndTime'];
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private route: Router) {
     this.getAllUsers();
   }
 
@@ -35,5 +35,9 @@ export class UsersComponent implements OnInit {
       this.changes = ur;
       console.log(ur)
     })
+  }
+
+  goBack() {
+    this.route.navigate(['']);
   }
 }

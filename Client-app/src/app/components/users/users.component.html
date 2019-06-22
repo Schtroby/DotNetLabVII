@@ -23,7 +23,11 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-<hr />
+<div>
+  <hr />
+  <h4>Details here...</h4>
+  <hr />
+</div>
 
 <table mat-table [dataSource]="changes" class="mat-elevation-z8">
 
@@ -50,3 +54,10 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumnsChanges"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumnsChanges;"></tr>
 </table>
+<div>
+  <hr>
+  <button id="goBack" (click)="goBack()">
+    <mat-icon>home</mat-icon>
+    <span><b>Back</b></span>
+  </button>
+</div>
