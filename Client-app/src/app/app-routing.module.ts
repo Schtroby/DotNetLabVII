@@ -4,6 +4,8 @@ import {HomeComponent} from './components/home/home.component';
 import {TasksComponent} from './components/tasks/tasks.component';
 import {UsersComponent} from './components/users/users.component';
 import { CommentsComponent } from './components/comments/comments.component';
+import { UserRolesComponent } from './components/userroles/userroles.component';
+
 
 const routes: Routes = [
 
@@ -24,6 +26,10 @@ const routes: Routes = [
       {
         path: 'comments',
         component: CommentsComponent
+      },
+      {
+        path: 'userroles',
+        component: UserRolesComponent
       }
     ]
 
