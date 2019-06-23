@@ -37,7 +37,7 @@ namespace LabIV.Controllers
         [HttpGet]
         public PaginatedList<TaskGetDTO> Get([FromQuery]DateTime? from, [FromQuery]DateTime? to, [FromQuery]int page = 1)
         {
-
+            
             return tasksService.GetAll(page, from, to);
         }
 

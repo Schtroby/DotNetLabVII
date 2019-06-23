@@ -64,6 +64,7 @@ namespace LabIV.Services
 
         public PaginatedList<TaskGetDTO> GetAll(int page, DateTime? from = null, DateTime? to = null)
         {
+          
             IQueryable<Task> result = context
                 .Tasks
                 .OrderBy(e => e.Id)

@@ -60,3 +60,4 @@
     <span><b>Back</b></span>
   </button>
 </div>
+<mat-paginator [length] ="totalTasks" [pageSize] =" totalTasksPerPage" [pageSizeOptions] ="pageSizeOptions" (page) ="onChangedPage($event)"></mat-paginator>

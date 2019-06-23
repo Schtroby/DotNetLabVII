@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UsersComponent } from './components/users/users.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { UserRolesComponent } from './components/userroles/userroles.component';
+import { MatPaginatorModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { UserRolesComponent } from './components/userroles/userroles.component';
     AppRoutingModule,
     SharedModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
