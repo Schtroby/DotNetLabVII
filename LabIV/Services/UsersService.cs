@@ -51,12 +51,12 @@ namespace LabIV.Services
         public LogInGetDTO Authenticate(string username, string password)
         {
             var user = context.Users
-                .Include(u => u.UserUserRoles)
-                .ThenInclude(uur => uur.UserRole)
+                //.Include(u => u.UserUserRoles)
+                //.ThenInclude(uur => uur.UserRole)
                 .SingleOrDefault(x => x.Username == username &&
                                  x.Password == ComputeSha256Hash(password));
 
-            string userRoleName = userUserRolesService.GetUserRoleNameById(user.Id);
+           string userRoleName = userUserRolesService.GetUserRoleNameById(user.Id);
 
             // return null if user not found
             if (user == null)
@@ -82,7 +82,7 @@ namespace LabIV.Services
                 Email = user.Email,
                 Username = user.Username,
                 Token = tokenHandler.WriteToken(token),
-                UserRole = user.UserUserRoles.First().UserRole.Name
+                UserRole = userRoleName.ToString()
             };
             // remove password before returning
             return result;

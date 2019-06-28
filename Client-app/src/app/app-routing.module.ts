@@ -8,6 +8,10 @@ import { UserRolesComponent } from './components/userroles/userroles.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
+import { UsersGuard } from './guards/users.guard';
+import { TasksGuard } from './guards/tasks.guard';
+import { CommentsGuard } from './guards/comments.guard';
+import { UserRolesGuard } from './guards/userroles.guard';
 
 
 const routes: Routes = [
@@ -19,21 +23,25 @@ const routes: Routes = [
     children: [
       {
         path: 'tasks',
-        component: TasksComponent
+        component: TasksComponent,
+        canActivate: [TasksGuard],
       },
 
       {
         path: 'users',
-        component: UsersComponent
+        component: UsersComponent,
+        canActivate: [UsersGuard],
       },
 
       {
         path: 'comments',
-        component: CommentsComponent
+        component: CommentsComponent,
+        canActivate: [CommentsGuard],
       },
       {
         path: 'userroles',
-        component: UserRolesComponent
+        component: UserRolesComponent,
+        canActivate: [UserRolesGuard],
       }
     ]
 
