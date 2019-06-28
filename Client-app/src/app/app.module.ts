@@ -11,6 +11,10 @@ import { UsersComponent } from './components/users/users.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { UserRolesComponent } from './components/userroles/userroles.component';
 import { MatPaginatorModule } from '@angular/material';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,9 @@ import { MatPaginatorModule } from '@angular/material';
     TasksComponent,
     UsersComponent,
     CommentsComponent,
-    UserRolesComponent
+    UserRolesComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +33,10 @@ import { MatPaginatorModule } from '@angular/material';
     SharedModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    ReactiveFormsModule,
+    FormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

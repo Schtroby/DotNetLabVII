@@ -2,7 +2,7 @@
     <li *ngFor="let t of tasks.entries">{{t.title}}</li>
 </ul>-->
 
-<table mat-table [dataSource]="users" class="mat-elevation-z8">
+<table *ngIf="users !== null" mat-table [dataSource]="users" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
